@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Demo</string>
+
+    <string name="main_app_bar_title">%1$s / %2$s</string>
+    <string name="main_general_error">Oops! Something went wrong, please try again by pulling down to refresh.</string>
+
+    <string name="about">About</string>
+
+    <string name="about_description">Demo application which accesses &lt;a href="https://developer.github.com/v4/" target="_blank">GitHub GraphQL API v4&lt;/a> using &lt;a href="https://github.com/apollographql/apollo-android" target="_blank">Apollo GraphQL Client&lt;/a>. It displays list of recent commits, supports pull to refresh and automatically loads more commits when reaching the end of the list. Tapping the commit message expands it, tapping the revision hash opens the commit in a web browser.</string>
+    <string name="about_author">Author is Sergey Masyura</string>
+    <string name="about_contact">&lt;a href="https://www.linkedin.com/in/masyura" target="_blank">LinkedIn&lt;/a></string>
+
+    <string name="sample_author" translatable="false">Sample Name</string>
+    <string name="sample_email" translatable="false">sample.email@company.com</string>
+    <string name="sample_revision" translatable="false">c857ed</string>
+</resources>

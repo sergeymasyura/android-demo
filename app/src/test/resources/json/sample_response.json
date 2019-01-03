@@ -1,0 +1,52 @@
+{
+  "data": {
+    "repository": {
+      "__typename": "Repository",
+      "defaultBranchRef": {
+        "__typename": "Ref",
+        "target": {
+          "__typename": "Commit",
+          "history": {
+            "__typename": "CommitHistoryConnection",
+            "edges": [
+              {
+                "__typename": "CommitEdge",
+                "node": {
+                  "__typename": "Commit",
+                  "committedDate": "2018-12-22T07:36:16Z",
+                  "messageHeadline": "Merge \"Prevent PYTHONPATH from accumulatively growing.\"",
+                  "message": "Merge \"Prevent PYTHONPATH from accumulatively growing.\"",
+                  "oid": "c0b701b2415791cbd89c857e09b391332c7fce01",
+                  "commitUrl": "https://github.com/aosp-mirror/platform_build/commit/c0b701b2415791cbd89c857e09b391332c7fce01",
+                  "author": {
+                    "__typename": "GitActor",
+                    "name": "Treehugger Robot",
+                    "email": "treehugger-gerrit@google.com",
+                    "avatarUrl": "https://camo.githubusercontent.com/de412d17a56864efbdf52b8a30fc66f2ec1deed7/68747470733a2f2f312e67726176617461722e636f6d2f6176617461722f34636661343231323565303766633430376166626439363539326234616436333f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d67"
+                  }
+                }
+              },
+              {
+                "__typename": "CommitEdge",
+                "node": {
+                  "__typename": "Commit",
+                  "committedDate": "2018-12-22T03:19:40Z",
+                  "messageHeadline": "Prevent PYTHONPATH from accumulatively growing.",
+                  "message": "Prevent PYTHONPATH from accumulatively growing.\n\nAfter running \"lunch\" multiple times, the global variable\nPYTHONPATH grows larger and larger with repetively content.\nThis patch is to prevent PYTHONPATH from prepending redundant path.\n\nBug: b/121110600\n\nTest: $ source build/envsetup.sh && lunch\n      $ echo $PYTHONPATH | sed 's/:/\\n/g'\n      $ lunch; lunch\n      $ echo $PYTHONPATH | sed 's/:/\\n/g' # not growing.\n\nChange-Id: Ifc36d071fb63bb1494bb0a94fdff477a41708c74",
+                  "oid": "22f4c322d63d19d392be689422be9e3e9c473410",
+                  "commitUrl": "https://github.com/aosp-mirror/platform_build/commit/22f4c322d63d19d392be689422be9e3e9c473410",
+                  "author": {
+                    "__typename": "GitActor",
+                    "name": "Jim Tang",
+                    "email": "jimtang@google.com",
+                    "avatarUrl": "https://camo.githubusercontent.com/4aa81a4279d586d99ca606cb36c57e2286541e11/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f61363466313336666461396561353632656564316166333131343531303966323f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d67"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

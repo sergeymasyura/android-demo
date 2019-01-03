@@ -1,0 +1,28 @@
+query GithubRepositoryCommitsAfter($repositoryOwner: String!, $repositoryName: String!, $limit: Int!, $cursor: String!) {
+  repository(owner: $repositoryOwner, name: $repositoryName) {
+    defaultBranchRef {
+      target {
+        ... on Commit {
+          history(first: $limit, after: $cursor) {
+            edges {
+              node {
+                ... on Commit {
+                  committedDate
+                  messageHeadline
+                  message
+                  oid
+                  commitUrl
+                  author {
+                    name
+                    email
+                    avatarUrl
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

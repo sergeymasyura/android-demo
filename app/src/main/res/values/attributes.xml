@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxLinesCollapsed" format="integer" />
+        <attr name="maxLinesExpanded" format="integer" />
+    </declare-styleable>
+</resources>

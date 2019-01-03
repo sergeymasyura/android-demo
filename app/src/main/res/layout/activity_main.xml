@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.masyura.demo.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/main_swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isRefreshing="@{model.isRefreshingData}">
+
+            <com.masyura.demo.widget.LoadableRecyclerView
+                android:id="@+id/main_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:clipToPadding="false"
+                android:fastScrollEnabled="true"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:scrollbars="vertical"
+                android:scrollingCache="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:setAdapter="@{model.getAdapter()}"
+                app:setLoaded="@{model.isLoadingMoreData}"
+                tools:listitem="@layout/item_main" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:id="@+id/main_load_more_progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="@dimen/progress_bar_size_small"
+            android:layout_height="@dimen/progress_bar_size_small"
+            android:indeterminate="true"
+            app:isVisible="@{model.isLoadingMoreData}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.98"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/main_progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="@dimen/progress_bar_size_large"
+            android:layout_height="@dimen/progress_bar_size_large"
+            android:indeterminate="true"
+            app:isVisible="@{model.isLoadingInitialData}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/main_error_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.30" />
+
+        <TextView
+            android:id="@+id/main_error_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:lineSpacingMultiplier="1.1"
+            android:text="@string/main_general_error"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_error_image"
+            app:layout_constraintWidth_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/main_error_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="main_error_image, main_error_message"
+            app:isVisible="@{model.isError}"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+        <variable
+            name="viewModel"
+            type="com.masyura.demo.viewmodel.MainViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="6dp"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/item_main_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="10dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/item_main_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="10dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/item_main_guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="10dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/item_main_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="10dp" />
+
+                <TextView
+                    android:id="@+id/item_main_message_headline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.getCommitAt(position).messageHeadline}"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/item_main_guideline_end"
+                    app:layout_constraintStart_toStartOf="@id/item_main_guideline_start"
+                    app:layout_constraintTop_toTopOf="@id/item_main_guideline_top"
+                    tools:text="@tools:sample/lorem" />
+
+                <ImageView
+                    android:id="@+id/item_main_avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    app:loadImage="@{viewModel.getCommitAt(position).author.avatarUri}"
+                    app:layout_constraintStart_toStartOf="@id/item_main_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@id/item_main_message_headline"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/item_main_author_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@{viewModel.getCommitAt(position).author.name}"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@id/item_main_avatar"
+                    app:layout_constraintTop_toTopOf="@id/item_main_avatar"
+                    tools:text="@string/sample_author" />
+
+                <TextView
+                    android:id="@+id/item_main_author_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:autoLink="email"
+                    android:text="@{viewModel.getCommitAt(position).author.email}"
+                    android:textColorLink="@color/colorPrimary"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/item_main_avatar"
+                    app:layout_constraintTop_toBottomOf="@id/item_main_author_name"
+                    tools:text="@string/sample_email" />
+
+                <com.masyura.demo.widget.ExpandableTextView
+                    android:id="@+id/item_main_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:text="@{viewModel.getCommitAt(position).message}"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/item_main_guideline_end"
+                    app:layout_constraintStart_toStartOf="@id/item_main_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@id/item_main_avatar"
+                    app:maxLinesCollapsed="3"
+                    app:maxLinesExpanded="100"
+                    tools:text="@tools:sample/lorem" />
+
+                <TextView
+                    android:id="@+id/item_main_revision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onCommitRevisionClick(position)}"
+                    android:padding="4dp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/item_main_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@id/item_main_guideline_end"
+                    app:layout_constraintTop_toBottomOf="@id/item_main_message"
+                    app:formatRevision="@{viewModel.getCommitAt(position).revision}"
+                    tools:text="@string/sample_revision" />
+
+                <TextView
+                    android:id="@+id/item_main_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@id/item_main_guideline_bottom"
+                    app:layout_constraintStart_toStartOf="@id/item_main_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@id/item_main_message"
+                    app:formatDate="@{viewModel.getCommitAt(position).committedDate}"
+                    tools:text="@tools:sample/date/ddmmyy" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+</layout>
