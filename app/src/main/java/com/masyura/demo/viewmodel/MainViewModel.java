@@ -15,6 +15,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import androidx.databinding.ObservableBoolean;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import io.reactivex.SingleObserver;
@@ -32,8 +33,12 @@ public class MainViewModel extends ViewModel {
     public ObservableBoolean isLoadingInitialData;
     public ObservableBoolean isLoadingMoreData;
     public ObservableBoolean isRefreshingData;
-    public MutableLiveData<String> selectedCommitUri;
 
+    private MutableLiveData<String> selectedCommitUri;
+
+    public LiveData<String> getSelectedCommitUri() {
+        return selectedCommitUri;
+    }
 
     @SuppressWarnings("WeakerAccess")
     @Inject

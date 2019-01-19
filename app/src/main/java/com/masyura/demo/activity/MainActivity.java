@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             viewModel.loadData();
         });
 
-        viewModel.selectedCommitUri.observe(this, uri -> {
+        viewModel.getSelectedCommitUri().observe(this, uri -> {
             if (uri != null) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                 startActivity(browserIntent);

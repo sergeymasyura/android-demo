@@ -42,7 +42,7 @@ public class MainViewModelUnitTest {
         MainViewModel viewModel = new MainViewModel();
         viewModel.init();
 
-        viewModel.selectedCommitUri.observeForever(uriToOpenObserver);
+        viewModel.getSelectedCommitUri().observeForever(uriToOpenObserver);
 
         List<Commit> commits = makeCommits();
         viewModel.getAdapter().setItems(commits);
