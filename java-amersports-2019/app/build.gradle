@@ -2,19 +2,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.apollographql.android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.masyura.demo"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 10000
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         setProperty("archivesBaseName", "Demo-$versionName")
 
         buildConfigField "String", "GITHUB_API_URL", '"https://api.github.com/graphql"'
-        buildConfigField "String", "GITHUB_API_TOKEN", '"021440bda6e9c455a324f41c4ba02266fdcc4f54"'
+        buildConfigField "String", "GITHUB_API_TOKEN", '"2be106baae58ef897a24aae47d3d157c05fc9058"'
         buildConfigField "String", "GITHUB_REPOSITORY_OWNER", '"aosp-mirror"'
         buildConfigField "String", "GITHUB_REPOSITORY_NAME", '"platform_build"'
         buildConfigField "int", "GITHUB_PAGINATION", '50'
