@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">KONE Coding test</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <string name="hint_user_input">Please enter lengths of the short sides of a right-angled triangle, given in millimeters.</string>
+    <string name="hint_app_output">Press Calculate button to see length of hypotenuse, angles of the triangle and its area in square inches.</string>
+
+    <string name="input_prompt_side_a">Short-side A (mm)</string>
+    <string name="input_prompt_side_b">Short-side B (mm)</string>
+
+    <string name="action_calculate">Calculate</string>
+
+    <string name="output_value_inch">%1$f (in)</string>
+    <string name="output_value_square_inch">%1$f (sq in)</string>
+    <string name="output_value_angle">%1$f °</string>
+
+    <string name="output_title_hypotenuse">Hypotenuse:</string>
+    <string name="output_title_angle_a">Angle A:</string>
+    <string name="output_title_angle_b">Angle B:</string>
+    <string name="output_title_area">Area:</string>
+</resources>
