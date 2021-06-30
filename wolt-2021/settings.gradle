@@ -1,0 +1,2 @@
+rootProject.name = "Wolt Demo"
+include ':app'

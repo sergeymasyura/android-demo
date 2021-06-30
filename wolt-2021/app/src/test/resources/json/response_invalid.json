@@ -1,0 +1,17 @@
+{
+  "results": [
+    {
+      "active_menu": {
+        "$oid": "56cc5f660662b569b9c394eb"
+      },
+      "address": "Lapinlahdenkatu 12",
+      "alive": 0,
+      "allowed_payment_methods": [
+        "card",
+        "mobilepay"
+      ],
+      "always_available": false,
+      "bank_account_type": "IBAN",
+      "city": "Helsinki",
+      "status": "OK"
+    }

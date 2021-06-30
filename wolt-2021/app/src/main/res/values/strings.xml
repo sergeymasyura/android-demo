@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Wolt Demo</string>
+
+    <string name="notification_search_failure">Something went wrong… but we are working on it</string>
+    <string name="notification_search_empty">We tried hard to find some good places, but looks like nothing around…</string>
+    <string name="notification_favorite_failure">Ups, can not update favorites…</string>
+</resources>
